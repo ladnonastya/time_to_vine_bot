@@ -82,7 +82,8 @@ def main():
         elif last_chat_text.lower()=='го бухать' or last_chat_text.lower()=='го бухать?' or last_chat_text.lower()=='го бухать!':
             #greet_bot.send_message(last_chat_id, 'Го')
             apihelper.send_photo(token,last_chat_id,'http://picscomment.com/pics/3690.jpg')
-            apihelper.send_message(token, last_chat_id, 'ну го, чё', reply_markup = m)
+            
+		apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)	
 
         new_offset = last_update_id + 1
 
