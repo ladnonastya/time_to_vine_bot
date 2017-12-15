@@ -72,8 +72,10 @@ def main():
             
         elif last_chat_text.lower() in greetings and today == now.day and (23 <= hour or hour < 6) :
             greet_bot.send_message(last_chat_id, 'Доброй ночи, {}'.format(last_chat_name))
-        elif last_chat_text.lower()='го бухать' or last_chat_text.lower()='го бухать?' or last_chat_text.lower()='го бухать!'
+			
+        elif last_chat_text.lower()=='го бухать' or last_chat_text.lower()=='го бухать?' or last_chat_text.lower()=='го бухать!'
             greet_bot.send_message(last_chat_id, 'ну го, чё')
+			
         new_offset = last_update_id + 1
 
 if __name__ == '__main__':  
