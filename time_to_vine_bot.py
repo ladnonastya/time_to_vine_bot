@@ -55,12 +55,14 @@ def main():
         last_update = greet_bot.get_last_update()
         print(last_update)
         if isinstance(last_update, list): 
-            last_update_id = last_update[-1]['update_id'] 
+            last_update_id = last_update[-1]['update_id']
+            print('update list ',last_update_id)            
         elif last_update == None: 
-            continue 
+            continue
+            print('no id')            
         else: 
             last_update_id = last_update['update_id']
-        
+            print('one update')
             if 'message' in last_update.keys():
                 last_chat_text = last_update['message']['text']
                 last_chat_id = last_update['message']['chat']['id']
@@ -74,26 +76,27 @@ def main():
         if last_chat_text.lower() in greetings and today == now.day and 6 <= hour < 12:
             greet_bot.send_message(last_chat_id, 'Доброе утро, {}'.format(last_chat_name))
             #apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
-
+            print('logging morning ', last_update) 
         elif last_chat_text.lower() in greetings and today == now.day and 12 <= hour < 17:
             greet_bot.send_message(last_chat_id, 'Добрый день, {}'.format(last_chat_name))
             #apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
-
+            print('logging day ', last_update)
         elif last_chat_text.lower() in greetings and today == now.day and 17 <= hour < 23:
             greet_bot.send_message(last_chat_id, 'Доброго вечерочка, {}'.format(last_chat_name))
             #apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)    
-            
+            print('logging evening ', last_update)
         elif last_chat_text.lower() in greetings and today == now.day and (23 <= hour or hour < 6) :
             greet_bot.send_message(last_chat_id, 'Доброй ночи, {}'.format(last_chat_name))
             #apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
-            print('logging')            
+            print('logging night ', last_update)            
 
         elif last_chat_text.lower()=='го бухать' or last_chat_text.lower()=='го бухать?' or last_chat_text.lower()=='го бухать!':
             greet_bot.send_message(last_chat_id, 'ну го, чё')
             apihelper.send_photo(token,last_chat_id,'http://picscomment.com/pics/3690.jpg')
             apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
+            print('last update: ', last_update)
             if 'callback_query' in last_update.keys():
-                last_chat_inline_command = last_update['callback_query']['data']
+                last_chat_inline_command = last_update['callback_query']['data']                
                 if last_chat_inline_command == 'vinishko':
                     greet_bot.send_message(last_chat_id, 'я думаю, что тебе нужно винишко, {}'.format(last_chat_name))
                 elif last_chat_inline_command == 'tequila':
