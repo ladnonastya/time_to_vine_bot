@@ -91,12 +91,12 @@ def main():
             greet_bot.send_message(last_chat_id, 'ну го, чё')
             apihelper.send_photo(token,last_chat_id,'http://picscomment.com/pics/3690.jpg')
             apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
-			if 'callback_query' in last_update.keys():
-			    last_chat_inline_command = last_update['callback_query']['data']
-				if last_chat_inline_command == 'vinishko':
-					greet_bot.send_message(last_chat_id, 'я думаю, что тебе нужно винишко, {}'.format(last_chat_name))
-				elif last_chat_inline_command == 'tequila':
-					greet_bot.send_message(last_chat_id, 'для тебя сейчас самое оно - текила!, {}'.format(last_chat_name))
+            if 'callback_query' in last_update.keys():
+                last_chat_inline_command = last_update['callback_query']['data']
+                if last_chat_inline_command == 'vinishko':
+                    greet_bot.send_message(last_chat_id, 'я думаю, что тебе нужно винишко, {}'.format(last_chat_name))
+                elif last_chat_inline_command == 'tequila':
+                    greet_bot.send_message(last_chat_id, 'для тебя сейчас самое оно - текила!, {}'.format(last_chat_name))
             
         new_offset = last_update_id + 1
 
