@@ -28,7 +28,8 @@ class BotHandler:
         if len(get_result) > 0:
             last_update = get_result[-1]
         else:
-            last_update = get_result[len(get_result)]
+            #last_update = get_result[len(get_result)]
+			last_update = None
         return last_update
     
 greet_bot = BotHandler(token)  
@@ -46,10 +47,16 @@ def main():
 
         last_update = greet_bot.get_last_update()
 
-        last_update_id = last_update['update_id']
-        last_chat_text = last_update['message']['text']
-        last_chat_id = last_update['message']['chat']['id']
-        last_chat_name = last_update['message']['chat']['first_name']
+        #last_update_id = last_update['update_id']
+		if isinstance(last_update, list): 
+			last_update_id = last_update[-1]['update_id'] 
+		elif last_update == None: 
+			continue 
+		else: 
+			last_update_id = last_update['update_id']
+		last_chat_text = last_update['message']['text']
+		last_chat_id = last_update['message']['chat']['id']
+		last_chat_name = last_update['message']['chat']['first_name']
 
         if last_chat_text.lower() in greetings and today == now.day and 6 <= hour < 12:
             greet_bot.send_message(last_chat_id, 'Доброе утро, {}'.format(last_chat_name))
