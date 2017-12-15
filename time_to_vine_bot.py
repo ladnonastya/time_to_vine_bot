@@ -31,10 +31,10 @@ class BotHandler:
         if len(get_result) > 0:
             last_update = get_result[-1]
         else:
-            #last_update = get_result[len(get_result)]
             last_update = None
         return last_update
     
+        
 greet_bot = BotHandler(token)  
 greetings = ('здравствуй', 'привет', 'ку', 'здорово', 'здравствуйте', 'дратути')  
 now = datetime.datetime.now()
@@ -44,13 +44,16 @@ def main():
     new_offset = None
     today = now.day
     hour = now.hour
-
+    
+    #m = types.InlineKeyboardMarkup()
+    #m.add(types.InlineKeyboardButton(text = 'грустненько', callback_data='vinishko'))
+    #m.add(types.InlineKeyboardButton(text = 'хочу танцевать', callback_data='tequila'))
+    
     while True:
         greet_bot.get_updates(new_offset)
 
         last_update = greet_bot.get_last_update()
 
-        #last_update_id = last_update['update_id']
         if isinstance(last_update, list): 
             last_update_id = last_update[-1]['update_id'] 
         elif last_update == None: 
@@ -75,11 +78,12 @@ def main():
             
         elif last_chat_text.lower() in greetings and today == now.day and (23 <= hour or hour < 6) :
             greet_bot.send_message(last_chat_id, 'Доброй ночи, {}'.format(last_chat_name))
-			
+
         elif last_chat_text.lower()=='го бухать' or last_chat_text.lower()=='го бухать?' or last_chat_text.lower()=='го бухать!':
-            greet_bot.send_message(last_chat_id, 'ну го, чё')
+            greet_bot.send_message(last_chat_id, 'Го')
             apihelper.send_photo(token,last_chat_id,'http://picscomment.com/pics/3690.jpg')
-			
+            
+
         new_offset = last_update_id + 1
 
 if __name__ == '__main__':  
