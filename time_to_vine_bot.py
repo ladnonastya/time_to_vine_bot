@@ -101,8 +101,10 @@ def main():
             last_chat_inline_command = last_update['callback_query']['data']                
             if last_chat_inline_command == 'vinishko':
                 greet_bot.send_message(last_chat_id, 'я думаю, что тебе нужно винишко, {}'.format(last_chat_name))
+				greet_bot.send_message(last_chat_id, 'Смотри, что я для тебя нашел - https://edadeal.ru/moskva/offers?segment=wine')
             elif last_chat_inline_command == 'tequila':
                 greet_bot.send_message(last_chat_id, 'для тебя сейчас самое оно - текила!, {}'.format(last_chat_name))
+				greet_bot.send_message(last_chat_id, 'Тут короче есть скидоны - https://edadeal.ru/moskva/offers?segment=tequila')
             
         new_offset = last_update_id + 1
 
