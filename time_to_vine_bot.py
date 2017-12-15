@@ -45,9 +45,9 @@ def main():
     today = now.day
     hour = now.hour
     
-    #m = types.InlineKeyboardMarkup()
-    #m.add(types.InlineKeyboardButton(text = 'грустненько', callback_data='vinishko'))
-    #m.add(types.InlineKeyboardButton(text = 'хочу танцевать', callback_data='tequila'))
+    m = types.InlineKeyboardMarkup()
+    m.add(types.InlineKeyboardButton(text = 'грустненько', callback_data='vinishko'))
+    m.add(types.InlineKeyboardButton(text = 'хочу танцевать', callback_data='tequila'))
     
     while True:
         greet_bot.get_updates(new_offset)
