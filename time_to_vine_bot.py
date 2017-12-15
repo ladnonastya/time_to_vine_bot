@@ -85,13 +85,12 @@ def main():
             apihelper.send_photo(token,last_chat_id,'http://picscomment.com/pics/3690.jpg')
             apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
             last_chat_inline_command = last_update['callback_query']['data']
-            last_chat_text = last_update['callback_query']['message']['text']
-            last_chat_id = last_update['callback_query']['message']['chat']['id']
-            last_chat_name = last_update['callback_query']['message']['chat']['first_name']
+            last_chat_id_1 = last_update['callback_query']['message']['chat']['id']
+            last_chat_name_1 = last_update['callback_query']['message']['chat']['first_name']
             if last_chat_inline_command == 'vinishko':
-                greet_bot.send_message(last_chat_id, 'я думаю, что тебе нужно винишко, {}'.format(last_chat_name))
+                greet_bot.send_message(last_chat_id_1, 'я думаю, что тебе нужно винишко, {}'.format(last_chat_name_1))
             elif last_chat_inline_command == 'tequila':
-                greet_bot.send_message(last_chat_id, 'для тебя сейчас самое оно - текила!, {}'.format(last_chat_name))
+                greet_bot.send_message(last_chat_id_1, 'для тебя сейчас самое оно - текила!, {}'.format(last_chat_name_1))
             
         new_offset = last_update_id + 1
 
