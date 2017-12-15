@@ -83,9 +83,11 @@ def main():
             #greet_bot.send_message(last_chat_id, 'Го')
             apihelper.send_photo(token,last_chat_id,'http://picscomment.com/pics/3690.jpg')
             
-		new_offset = last_update_id + 1
 		
-	apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
+		
+		apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
+		
+		new_offset = last_update_id + 1
 
 if __name__ == '__main__':  
     try:
