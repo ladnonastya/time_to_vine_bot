@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[33]:
-
-
 import requests  
 import datetime
 
@@ -38,7 +32,7 @@ class BotHandler:
         return last_update
     
 greet_bot = BotHandler(token)  
-greetings = ('здравствуй', 'привет', 'ку', 'здорово', 'здравствуйте', 'hi', 'hello', 'че каво сучара')  
+greetings = ('здравствуй', 'привет', 'ку', 'здорово', 'здравствуйте')  
 now = datetime.datetime.now()
 
 
@@ -79,11 +73,4 @@ if __name__ == '__main__':
         main()
     except KeyboardInterrupt:
         exit()
-        
-@bot.message_handler(content_types=["text"])
-def default_test(message):
-    keyboard = types.InlineKeyboardMarkup()
-    url_button = types.InlineKeyboardButton(text="Перейти на Яндекс", url="https://ya.ru")
-    keyboard.add(url_button)
-    bot.send_message(message.chat.id, "Привет! Нажми на кнопку и перейди в поисковик.", reply_markup=keyboard)
 
