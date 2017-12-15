@@ -4,6 +4,13 @@ import telebot
 from telebot import types
 from telebot import apihelper
 
+#
+# Created by @author Aleksey Vasilyev
+#		  by @author Anastasiya Kharitonova
+#  
+#
+
+
 token = '487294417:AAHGPK8puACx7ilbHkQAWSAZoEaBkeS6J9w'
 
 class BotHandler:
