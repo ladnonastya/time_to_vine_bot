@@ -1,5 +1,7 @@
 import requests  
 import datetime
+import telebot
+from telebot import apihelper
 
 token = "487294417:AAHGPK8puACx7ilbHkQAWSAZoEaBkeS6J9w"
 
@@ -75,6 +77,7 @@ def main():
 			
         elif last_chat_text.lower()=='го бухать' or last_chat_text.lower()=='го бухать?' or last_chat_text.lower()=='го бухать!':
             greet_bot.send_message(last_chat_id, 'ну го, чё')
+            apihelper.send_photo(token,last_chat_id,'http://picscomment.com/pics/3690.jpg')
 			
         new_offset = last_update_id + 1
 
