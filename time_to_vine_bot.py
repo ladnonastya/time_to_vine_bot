@@ -61,14 +61,14 @@ def main():
         else: 
             last_update_id = last_update['update_id']
         
-        if 'message' in last_update.keys():
-            last_chat_text = last_update['message']['text']
-            last_chat_id = last_update['message']['chat']['id']
-            last_chat_name = last_update['message']['chat']['first_name']
-        elif 'callback_query' in last_update.keys():
-            last_chat_text = last_update['callback_query']['message']['text']
-            last_chat_id = last_update['callback_query']['message']['chat']['id']
-            last_chat_name = last_update['callback_query']['message']['chat']['first_name']
+            if 'message' in last_update.keys():
+                last_chat_text = last_update['message']['text']
+                last_chat_id = last_update['message']['chat']['id']
+                last_chat_name = last_update['message']['chat']['first_name']
+            elif 'callback_query' in last_update.keys():
+                last_chat_text = last_update['callback_query']['message']['text']
+                last_chat_id = last_update['callback_query']['message']['chat']['id']
+                last_chat_name = last_update['callback_query']['message']['chat']['first_name']
         
     
         if last_chat_text.lower() in greetings and today == now.day and 6 <= hour < 12:
