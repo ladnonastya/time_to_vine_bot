@@ -57,10 +57,10 @@ def main():
     m.add(types.InlineKeyboardButton(text = 'грустненько :(', callback_data='vinishko'))
     m.add(types.InlineKeyboardButton(text = 'хочу танцевать', callback_data='tequila'))
     m.add(types.InlineKeyboardButton(text = 'тяжелый день, ваще жесть', callback_data='vodochka'))
-	m.add(types.InlineKeyboardButton(text = 'сегодня у меня пятница!', callback_data='viskarik'))
-	m.add(types.InlineKeyboardButton(text = 'у меня все хорошо', callback_data='rom'))
+    m.add(types.InlineKeyboardButton(text = 'сегодня у меня пятница!', callback_data='viskarik'))
+    m.add(types.InlineKeyboardButton(text = 'у меня все хорошо', callback_data='rom'))
 
-	
+    
     while True:
         greet_bot.get_updates(new_offset)
 
@@ -120,15 +120,15 @@ def main():
             elif last_chat_inline_command == 'vodochka':
                 greet_bot.send_message(last_chat_id, 'сочувствую')
                 greet_bot.send_message(last_chat_id, 'вот тут глянь, может что поможет - https://edadeal.ru/moskva/offers?segment=vodka')
-			elif last_chat_inline_command == 'viskarik':
+            elif last_chat_inline_command == 'viskarik':
                 greet_bot.send_message(last_chat_id, 'у меня есть кое-что для тебя')
                 greet_bot.send_message(last_chat_id, 'даже скидочка есть - https://edadeal.ru/moskva/offers?segment=whiskey')
-				greet_bot.send_message(last_chat_id, '{}, только не забудь взять колу'.format(last_chat_name))
-			elif last_chat_inline_command == 'rom':
+                greet_bot.send_message(last_chat_id, '{}, только не забудь взять колу'.format(last_chat_name))
+            elif last_chat_inline_command == 'rom':
                 greet_bot.send_message(last_chat_id, 'ну вот и отлично! сейчас будет еще лучше')
                 greet_bot.send_message(last_chat_id, 'хорошего вечера тебе') greet_bot.send_message(last_chat_id,'https://edadeal.ru/moskva/offers?segment=other-alcohols')
-			
-			
+            
+            
         new_offset = last_update_id + 1
 
 if __name__ == '__main__':  
