@@ -67,6 +67,7 @@ def main():
         last_update = greet_bot.get_last_update()
         #print('new try')
         print(last_update)
+        print(last_update['message']['chat'].keys())
         if isinstance(last_update, list): 
             last_update_id = last_update[-1]['update_id']
             #print('update list ',last_update_id)            
@@ -96,8 +97,8 @@ def main():
                 last_chat_text = last_update['callback_query']['message']['text']
                 last_chat_id = last_update['callback_query']['message']['chat']['id']
                 #last_chat_name = last_update['callback_query']['message']['chat']['first_name']
-                if 'last_chat_username' in last_update['message']['chat'].keys():
-                    last_chat_username = last_update['message']['chat']['username']
+                if 'last_chat_username' in last_update['callback_query']['message']['chat'].keys():
+                    last_chat_username = last_update['callback_query']['message']['chat']['username']
                     if last_chat_username=='pabaev':
                         last_chat_name='Павел Ованесович'
                     elif last_chat_username=='kislorod8':
