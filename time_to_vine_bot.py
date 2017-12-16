@@ -6,7 +6,7 @@ from telebot import apihelper
 
 #
 # Created by @author Aleksey Vasilyev
-#		  by @author Anastasiya Kharitonova
+          by @author Anastasiya Kharitonova
 #  
 #
 
@@ -51,7 +51,7 @@ def main():
     new_offset = None
     today = now.day
     hour = now.hour
-	print('now.day' ,now.day) 
+    print('now.day' ,now.day) 
     print('now.hour' ,now.hour)
     m = types.InlineKeyboardMarkup()
     m.add(types.InlineKeyboardButton(text = 'грустненько', callback_data='vinishko'))
