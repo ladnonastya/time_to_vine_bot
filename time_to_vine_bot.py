@@ -6,7 +6,7 @@ from telebot import apihelper
 
 #
 # Created by @author Aleksey Vasilyev
-          by @author Anastasiya Kharitonova
+#         by @author Anastasiya Kharitonova
 #  
 #
 
