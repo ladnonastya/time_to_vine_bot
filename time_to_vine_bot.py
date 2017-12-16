@@ -83,7 +83,13 @@ def main():
                 last_chat_username = last_update['message']['chat']['username']
                 if last_chat_username=='pabaev':
                     last_chat_name='Павел Ованесович'
-                else: 
+                elif last_chat_username=='kislorod8':
+                    last_chat_name='Ленка'
+                elif last_chat_username=='katyko':
+                    last_chat_name='Екатерина Владимировна'
+                elif last_chat_username=='ladno_nastya':
+                    last_chat_name='Хозяйка'
+                else:
                     last_chat_name = last_update['message']['chat']['first_name']
             elif 'callback_query' in last_update.keys():
                 last_chat_text = last_update['callback_query']['message']['text']
@@ -92,6 +98,12 @@ def main():
                 last_chat_username = last_update['callback_query']['message']['chat']['username']
                 if last_chat_username=='pabaev':
                     last_chat_name='Павел Ованесович'
+                elif last_chat_username=='kislorod8':
+                    last_chat_name='Ленка'
+                elif last_chat_username=='katyko':
+                    last_chat_name='Екатерина Владимировна'
+                elif last_chat_username=='ladno_nastya':
+                    last_chat_name='Хозяйка'
                 else: 
                     last_chat_name = last_update['callback_query']['message']['chat']['first_name']
                     
