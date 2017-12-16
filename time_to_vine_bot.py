@@ -54,15 +54,19 @@ def main():
     print('now.day' ,now.day) 
     print('now.hour' ,now.hour)
     m = types.InlineKeyboardMarkup()
-    m.add(types.InlineKeyboardButton(text = 'грустненько', callback_data='vinishko'))
+    m.add(types.InlineKeyboardButton(text = 'грустненько :(', callback_data='vinishko'))
     m.add(types.InlineKeyboardButton(text = 'хочу танцевать', callback_data='tequila'))
-    
+    m.add(types.InlineKeyboardButton(text = 'тяжелый день, ваще жесть', callback_data='vodochka'))
+	m.add(types.InlineKeyboardButton(text = 'сегодня у меня пятница!', callback_data='viskarik'))
+	m.add(types.InlineKeyboardButton(text = 'у меня все хорошо', callback_data='rom'))
+
+	
     while True:
         greet_bot.get_updates(new_offset)
 
         last_update = greet_bot.get_last_update()
         #print('new try')
-        #print(last_update)
+        print(last_update)
         if isinstance(last_update, list): 
             last_update_id = last_update[-1]['update_id']
             #print('update list ',last_update_id)            
@@ -84,19 +88,19 @@ def main():
     
         if last_chat_text.lower() in greetings and today == now.day and 6 <= hour < 12:
             greet_bot.send_message(last_chat_id, 'Доброе утро, {}'.format(last_chat_name))
-            #apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
+            apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
             #print('logging morning ', last_update) 
         elif last_chat_text.lower() in greetings and today == now.day and 12 <= hour < 17:
             greet_bot.send_message(last_chat_id, 'Добрый день, {}'.format(last_chat_name))
-            #apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
+            apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
             #print('logging day ', last_update)
         elif last_chat_text.lower() in greetings and today == now.day and 17 <= hour < 23:
             greet_bot.send_message(last_chat_id, 'Доброго вечерочка, {}'.format(last_chat_name))
-            #apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)    
+            apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)    
             #print('logging evening ', last_update)
         elif last_chat_text.lower() in greetings and today == now.day and (23 <= hour or hour < 6) :
             greet_bot.send_message(last_chat_id, 'Доброй ночи, {}'.format(last_chat_name))
-            #apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
+            apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
             #print('logging night ', last_update)            
 
         elif last_chat_text.lower()=='го бухать' or last_chat_text.lower()=='го бухать?' or last_chat_text.lower()=='го бухать!':
@@ -109,11 +113,22 @@ def main():
             last_chat_inline_command = last_update['callback_query']['data']                
             if last_chat_inline_command == 'vinishko':
                 greet_bot.send_message(last_chat_id, 'я думаю, что тебе нужно винишко, {}'.format(last_chat_name))
-                greet_bot.send_message(last_chat_id, 'Смотри, что я для тебя нашел - https://edadeal.ru/moskva/offers?segment=wine')
+                greet_bot.send_message(last_chat_id, 'смотри, что я для тебя нашел - https://edadeal.ru/moskva/offers?segment=wine')
             elif last_chat_inline_command == 'tequila':
-                greet_bot.send_message(last_chat_id, 'для тебя сейчас самое оно - текила!, {}'.format(last_chat_name))
-                greet_bot.send_message(last_chat_id, 'Тут короче есть скидоны - https://edadeal.ru/moskva/offers?segment=tequila')
-            
+                greet_bot.send_message(last_chat_id, 'для тебя сейчас самое оно - текила!')
+                greet_bot.send_message(last_chat_id, 'тут короче есть скидоны - https://edadeal.ru/moskva/offers?segment=tequila')
+            elif last_chat_inline_command == 'vodochka':
+                greet_bot.send_message(last_chat_id, 'сочувствую')
+                greet_bot.send_message(last_chat_id, 'вот тут глянь, может что поможет - https://edadeal.ru/moskva/offers?segment=vodka')
+			elif last_chat_inline_command == 'viskarik':
+                greet_bot.send_message(last_chat_id, 'у меня есть кое-что для тебя')
+                greet_bot.send_message(last_chat_id, 'даже скидочка есть - https://edadeal.ru/moskva/offers?segment=whiskey')
+				greet_bot.send_message(last_chat_id, '{}, только не забудь взять колу'.format(last_chat_name))
+			elif last_chat_inline_command == 'rom':
+                greet_bot.send_message(last_chat_id, 'ну вот и отлично! сейчас будет еще лучше')
+                greet_bot.send_message(last_chat_id, 'хорошего вечера тебе') greet_bot.send_message(last_chat_id,'https://edadeal.ru/moskva/offers?segment=other-alcohols')
+			
+			
         new_offset = last_update_id + 1
 
 if __name__ == '__main__':  
