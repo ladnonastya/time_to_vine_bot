@@ -126,7 +126,8 @@ def main():
                 greet_bot.send_message(last_chat_id, '{}, только не забудь взять колу'.format(last_chat_name))
             elif last_chat_inline_command == 'rom':
                 greet_bot.send_message(last_chat_id, 'ну вот и отлично! сейчас будет еще лучше')
-                greet_bot.send_message(last_chat_id, 'хорошего вечера тебе') greet_bot.send_message(last_chat_id,'https://edadeal.ru/moskva/offers?segment=other-alcohols')
+                greet_bot.send_message(last_chat_id, 'хорошего вечера тебе') 
+                greet_bot.send_message(last_chat_id,'https://edadeal.ru/moskva/offers?segment=other-alcohols')
             
             
         new_offset = last_update_id + 1
