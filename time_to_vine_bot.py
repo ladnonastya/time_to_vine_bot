@@ -81,7 +81,7 @@ def main():
                 last_chat_text = last_update['message']['text']
                 last_chat_id = last_update['message']['chat']['id']
                 #last_chat_name = last_update['message']['chat']['first_name']
-                if 'last_chat_username' in last_update['message']['chat'].keys():
+                if 'username' in last_update['message']['chat'].keys():
                     last_chat_username = last_update['message']['chat']['username']
                     if last_chat_username=='pabaev':
                         last_chat_name='Павел Ованесович'
@@ -97,7 +97,7 @@ def main():
                 last_chat_text = last_update['callback_query']['message']['text']
                 last_chat_id = last_update['callback_query']['message']['chat']['id']
                 #last_chat_name = last_update['callback_query']['message']['chat']['first_name']
-                if 'last_chat_username' in last_update['callback_query']['message']['chat'].keys():
+                if 'username' in last_update['callback_query']['message']['chat'].keys():
                     last_chat_username = last_update['callback_query']['message']['chat']['username']
                     if last_chat_username=='pabaev':
                         last_chat_name='Павел Ованесович'
