@@ -43,7 +43,7 @@ class BotHandler:
     
         
 greet_bot = BotHandler(token)  
-greetings = ('здравствуй', 'привет', 'ку', 'здорово', 'здравствуйте', 'дратути', 'приветики', 'салам алейкум', 'салам', 'приветик')  
+greetings = ('здравствуй', 'привет', 'ку', 'здорово', 'здравствуйте', 'дратути', 'приветики', 'салам алейкум', 'салам', 'приветик', 'чао', 'ciao')  
 now = datetime.datetime.now()
 
 
@@ -96,8 +96,16 @@ def main():
                         last_chat_name='Екатерина Владимировна'
                     elif last_chat_username=='ladno_nastya':
                         last_chat_name='Хозяйка'
+					elif last_chat_username=='':
+                        last_chat_name=''
+					elif last_chat_username=='':
+                        last_chat_name=''
+					elif last_chat_username=='':
+                        last_chat_name=''
                 else:
                     last_chat_name = last_update['message']['chat']['first_name']
+					if last_chat_name=='Илья' and last_update['message']['chat']['last_name']=='Чистяков':
+						last_chat_name='Илья Владимирович, самый лучший начальник'
             elif 'callback_query' in last_update.keys():
                 last_chat_text = last_update['callback_query']['message']['text']
                 last_chat_id = last_update['callback_query']['message']['chat']['id']
@@ -114,20 +122,21 @@ def main():
                         last_chat_name='Хозяйка'
                 else: 
                     last_chat_name = last_update['callback_query']['message']['chat']['first_name']
-                    
-        if last_chat_text.lower() in greetings and today == now.day and 6 <= hour < 12:
+                    if last_chat_name=='Илья' and last_update['callback_query']['message']['chat']['last_name']=='Чистяков':
+						last_chat_name='Илья Владимирович, самый лучший начальник'
+        if last_chat_text.lower() in greetings and today == now.day and 6 <= hour+3 < 12:
             greet_bot.send_message(last_chat_id, 'Доброе утро, {}'.format(last_chat_name))
             apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
             #print('logging morning ', last_update) 
-        elif last_chat_text.lower() in greetings and today == now.day and 12 <= hour < 17:
+        elif last_chat_text.lower() in greetings and today == now.day and 12 <= hour+3 < 17:
             greet_bot.send_message(last_chat_id, 'Добрый день, {}'.format(last_chat_name))
             apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
             #print('logging day ', last_update)
-        elif last_chat_text.lower() in greetings and today == now.day and 17 <= hour < 23:
+        elif last_chat_text.lower() in greetings and today == now.day and 17 <= hour+3 < 23:
             greet_bot.send_message(last_chat_id, 'Доброго вечерочка, {}'.format(last_chat_name))
             apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)    
             #print('logging evening ', last_update)
-        elif last_chat_text.lower() in greetings and today == now.day and (23 <= hour or hour < 6) :
+        elif last_chat_text.lower() in greetings and today == now.day and (23 <= hour+3 or hour+3 < 6) :
             greet_bot.send_message(last_chat_id, 'Доброй ночи, {}'.format(last_chat_name))
             apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)
             #print('logging night ', last_update)            
