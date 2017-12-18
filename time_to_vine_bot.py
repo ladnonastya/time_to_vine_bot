@@ -96,6 +96,8 @@ def main():
                         last_chat_name='Екатерина Владимировна'
                     elif last_chat_username=='ladno_nastya':
                         last_chat_name='Настенька'
+                        greet_bot.send_message(last_chat_id, 'Не пиши мне больше, {}'.format(last_chat_name))
+                        break
                     elif last_chat_username=='poika_fuine':
                         last_chat_name='Екатерина Дмитриевна'
                     elif last_chat_username=='HornyCheese':
