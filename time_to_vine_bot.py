@@ -67,12 +67,12 @@ def main():
         last_update = greet_bot.get_last_update()
         #print('new try')
         print(last_update)
-        if 'message' in last_update.keys():
-            print(last_update['message']['chat'].keys())
-        elif 'callback_query' in last_update.keys():
-            print(last_update['callback_query']['message']['chat'].keys())
-        else: 
-            print ('nothing to log')
+        #if 'message' in last_update.keys():
+            #print(last_update['message']['chat'].keys())
+        #elif 'callback_query' in last_update.keys():
+            #print(last_update['callback_query']['message']['chat'].keys())
+        #else: 
+            #print ('nothing to log')
         if isinstance(last_update, list): 
             last_update_id = last_update[-1]['update_id']
             #print('update list ',last_update_id)            
