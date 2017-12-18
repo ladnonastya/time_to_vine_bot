@@ -104,7 +104,7 @@ def main():
                         #last_chat_name=''
                 else:
                     last_chat_name = last_update['message']['chat']['first_name']
-                    if last_chat_name=='Илья' and last_update['message']['chat']['last_name']=='Чистяков':
+                    if last_chat_name=='Илья Чистяков':
                         last_chat_name='Илья Владимирович, самый лучший начальник'
             elif 'callback_query' in last_update.keys():
                 last_chat_text = last_update['callback_query']['message']['text']
@@ -126,7 +126,7 @@ def main():
                         last_chat_name='Лёша'
                 else: 
                     last_chat_name = last_update['callback_query']['message']['chat']['first_name']
-                    if last_chat_name=='Илья' and last_update['callback_query']['message']['chat']['last_name']=='Чистяков':
+                    if last_chat_name=='Илья Чистяков':
                         last_chat_name='Илья Владимирович, самый лучший начальник'
         if last_chat_text.lower() in greetings and today == now.day and 6 <= hour+3 < 12:
             greet_bot.send_message(last_chat_id, 'Доброе утро, {}'.format(last_chat_name))
