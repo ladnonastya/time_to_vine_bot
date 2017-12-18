@@ -96,12 +96,12 @@ def main():
                         last_chat_name='Екатерина Владимировна'
                     elif last_chat_username=='ladno_nastya':
                         last_chat_name='Хозяйка'
-					elif last_chat_username=='':
-                        last_chat_name=''
-					elif last_chat_username=='':
-                        last_chat_name=''
-					elif last_chat_username=='':
-                        last_chat_name=''
+					#elif last_chat_username=='':
+                        #last_chat_name=''
+					#elif last_chat_username=='':
+                        #last_chat_name=''
+					#elif last_chat_username=='':
+                        #last_chat_name=''
                 else:
                     last_chat_name = last_update['message']['chat']['first_name']
 					if last_chat_name=='Илья' and last_update['message']['chat']['last_name']=='Чистяков':
