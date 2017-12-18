@@ -95,17 +95,17 @@ def main():
                     elif last_chat_username=='katyko':
                         last_chat_name='Екатерина Владимировна'
                     elif last_chat_username=='ladno_nastya':
-                        last_chat_name='Хозяйка'
-					#elif last_chat_username=='':
-                        #last_chat_name=''
-					#elif last_chat_username=='':
-                        #last_chat_name=''
-					#elif last_chat_username=='':
+                        last_chat_name='Настенька'
+                    elif last_chat_username=='poika_fuine':
+                        last_chat_name='Екатерина Дмитриевна'
+                    elif last_chat_username=='HornyCheese':
+                        last_chat_name='Лёша'
+                    #elif last_chat_username=='':
                         #last_chat_name=''
                 else:
                     last_chat_name = last_update['message']['chat']['first_name']
-					if last_chat_name=='Илья' and last_update['message']['chat']['last_name']=='Чистяков':
-						last_chat_name='Илья Владимирович, самый лучший начальник'
+                    if last_chat_name=='Илья' and last_update['message']['chat']['last_name']=='Чистяков':
+                        last_chat_name='Илья Владимирович, самый лучший начальник'
             elif 'callback_query' in last_update.keys():
                 last_chat_text = last_update['callback_query']['message']['text']
                 last_chat_id = last_update['callback_query']['message']['chat']['id']
@@ -123,7 +123,7 @@ def main():
                 else: 
                     last_chat_name = last_update['callback_query']['message']['chat']['first_name']
                     if last_chat_name=='Илья' and last_update['callback_query']['message']['chat']['last_name']=='Чистяков':
-						last_chat_name='Илья Владимирович, самый лучший начальник'
+                        last_chat_name='Илья Владимирович, самый лучший начальник'
         if last_chat_text.lower() in greetings and today == now.day and 6 <= hour+3 < 12:
             greet_bot.send_message(last_chat_id, 'Доброе утро, {}'.format(last_chat_name))
             apihelper.send_message(token, last_chat_id, 'Как твои дела сегодня?', reply_markup = m)            
