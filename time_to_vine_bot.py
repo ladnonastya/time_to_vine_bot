@@ -119,7 +119,11 @@ def main():
                     elif last_chat_username=='katyko':
                         last_chat_name='Екатерина Владимировна'
                     elif last_chat_username=='ladno_nastya':
-                        last_chat_name='Хозяйка'
+                        last_chat_name='Настенька'
+                    elif last_chat_username=='poika_fuine':
+                        last_chat_name='Екатерина Дмитриевна'
+                    elif last_chat_username=='HornyCheese':
+                        last_chat_name='Лёша'
                 else: 
                     last_chat_name = last_update['callback_query']['message']['chat']['first_name']
                     if last_chat_name=='Илья' and last_update['callback_query']['message']['chat']['last_name']=='Чистяков':
