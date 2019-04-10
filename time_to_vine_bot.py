@@ -95,7 +95,7 @@ def main():
                     elif last_chat_username=='katyko':
                         last_chat_name='Екатерина Владимировна'
                     elif last_chat_username=='ladno_nastya':
-                        last_chat_name='Настенька'
+                        last_chat_name='Настенька1'
                     elif last_chat_username=='poika_fuine':
                         last_chat_name='Екатерина Дмитриевна'
                     elif last_chat_username=='HornyCheese':
@@ -121,7 +121,7 @@ def main():
                     elif last_chat_username=='katyko':
                         last_chat_name='Екатерина Владимировна'
                     elif last_chat_username=='ladno_nastya':
-                        last_chat_name='Настенька'
+                        last_chat_name='Настенька2'
                     elif last_chat_username=='poika_fuine':
                         last_chat_name='Екатерина Дмитриевна'
                     elif last_chat_username=='HornyCheese':
