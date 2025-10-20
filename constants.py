@@ -5,7 +5,8 @@ greetings = ('здравствуй', 'привет', 'ку', 'здорово', '
 users = {'pabaev': 'Павел Ованесович', 'kislorod8': 'Ленка',
          'katyko': 'Екатерина Владимировна', 'ladno_nastya': 'Настенька',
          'poika_fuine': 'Екатерина Дмитриевна', 'HornyCheese': 'Лёша',
-         'azvarko': 'Сашенька'}
+         'azvarko': 'Сашенька',
+         'gpavelvladimirovich': 'дорогой мой Павел Владимирович'}
 
 drinks = ['vinishko', 'tequila', 'vodochka', 'viskarik', 'rom']
 
